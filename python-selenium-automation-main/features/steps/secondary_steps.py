@@ -2,8 +2,8 @@ from behave import given, when, then
 from pages_for_secondary import LoginPage, Sidebar, SecondaryPage
 
 BASE_URL = "https://soft.reelly.io"
-USERNAME = "************"   # change to yours
-PASSWORD = "************"   # change to yours
+USERNAME = "dwebb8210@gmail.com"   # change to yours
+PASSWORD = "AWDFlylikeag6@"   # change to yours
 
 
 @given("I open the site")
