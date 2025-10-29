@@ -1,0 +1,10 @@
+userName: dylanwebb_dgvjDt
+accessKey: X4ty1ZJo68BWjZsVwwXW
+framework: behave
+platforms:
+  - os: OS X
+    osVersion: Sonoma
+    browserName: Chrome
+    browserVersion: latest
+projectName: Reelly Pagination
+buildName: build-1
