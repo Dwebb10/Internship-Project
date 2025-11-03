@@ -1,10 +1,28 @@
 userName: dylanwebb_dgvjDt
 accessKey: X4ty1ZJo68BWjZsVwwXW
-framework: behave
+
+projectName: BrowserStack Sample
+buildName: bstack-demo
+
+browserstackLocal: true   # start BS Local tunnel
+parallelsPerPlatform: 1
+
 platforms:
-  - os: OS X
-    osVersion: Sonoma
+  - os: Windows
+    osVersion: "10"
     browserName: Chrome
-    browserVersion: latest
-projectName: Reelly Pagination
-buildName: build-1
+    browserVersion: "120.0"
+  - os: OS X
+    osVersion: Monterey
+    browserName: Safari
+    browserVersion: "15.6"
+  - deviceName: iPhone 13
+    osVersion: "15"
+    browserName: Chromium
+    deviceOrientation: portrait
+
+networkLogs: true
+consoleLogs: info
+
+# (framework is ignored for Behave)
+framework: behave

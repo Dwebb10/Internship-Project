@@ -1,5 +1,8 @@
 from behave import given, when, then
-from pages_for_secondary import LoginPage, Sidebar, SecondaryPage
+from features.pages.pages_for_secondary import LoginPage, Sidebar, SecondaryPage
+
+
+import os
 
 BASE_URL = "https://soft.reelly.io"
 USERNAME = "dwebb8210@gmail.com"   # change to yours
@@ -13,6 +16,7 @@ def open_site(ctx):
 
 @when("I log in")
 def do_login(ctx):
+    assert USERNAME and PASSWORD, "Set APP_USER and APP_PASS environment variables."
     ctx.login.login(USERNAME, PASSWORD)
     ctx.login.wait_until_logged_in()
 
