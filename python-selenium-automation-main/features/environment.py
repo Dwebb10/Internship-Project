@@ -47,7 +47,7 @@ def before_all(context):
 
     else:
         # --- your existing local setup (unchanged) ---
-        browser  = os.getenv("BROWSER", "firefox").lower()   # chrome | firefox
+        browser  = os.getenv("BROWSER", "chrome").lower()   # chrome | firefox
         headless = os.getenv("HEADLESS", "1").lower() in ("1", "true", "yes")
 
         if browser == "firefox":
