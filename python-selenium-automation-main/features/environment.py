@@ -13,7 +13,7 @@ def before_all(context):
     import yaml
     BS_HUB = "https://hub.browserstack.com/wd/hub"
 
-    # check if running on BrowserStack
+
     use_bs = os.getenv("BROWSERSTACK", "false").lower() == "true"
 
     if use_bs:
@@ -46,9 +46,22 @@ def before_all(context):
         context.driver = webdriver.Remote(command_executor=BS_HUB, options=options)
 
     else:
-        # --- your existing local setup (unchanged) ---
+
         browser  = os.getenv("BROWSER", "chrome").lower()   # chrome | firefox
         headless = os.getenv("HEADLESS", "1").lower() in ("1", "true", "yes")
+
+        if browser == "mobile":
+            device = os.getenv("DEVICE", "Pixel 2")
+
+            opts = webdriver.ChromeOptions()
+            opts.add_experimental_option("mobileEmulation", {"deviceName": device})
+
+            if headless:
+                opts.add_argument("--headless=new")
+            context.driver = webdriver.Chrome(
+                service=ChromeService(ChromeDriverManager().install()),
+                options=opts
+            )
 
         if browser == "firefox":
             opts = webdriver.FirefoxOptions()
